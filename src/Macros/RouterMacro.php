@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\Route\Macros;
 
 use Illuminate\Routing\Router;
 
-use YukataRm\Info\Proxies\PHPInfo;
+use Spark\Proxies\PHPInfo;
 
 /**
  * Router Macro
@@ -55,27 +55,27 @@ class RouterMacro
                 })->name("all");
 
                 $this->get("/general", function () {
-                    return PHPInfo::make()->general()->show();
+                    return PHPInfo::showGeneral();
                 })->name("general");
 
                 $this->get("/credits", function () {
-                    return PHPInfo::make()->credits()->show();
+                    return PHPInfo::showCredits();
                 })->name("credits");
 
                 $this->get("/configuration", function () {
-                    return PHPInfo::make()->configuration()->show();
+                    return PHPInfo::showConfiguration();
                 })->name("configuration");
 
                 $this->get("/modules", function () {
-                    return PHPInfo::make()->modules()->show();
+                    return PHPInfo::showModules();
                 })->name("modules");
 
                 $this->get("/variables", function () {
-                    return PHPInfo::make()->variables()->show();
+                    return PHPInfo::showVariables();
                 })->name("variables");
 
                 $this->get("/license", function () {
-                    return PHPInfo::make()->license()->show();
+                    return PHPInfo::showLicense();
                 })->name("license");
             });
         };
